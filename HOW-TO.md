@@ -13,15 +13,19 @@ Now we have a default `Vagrantfile` with all kinds of stuff we don't need!
 
 ####Step 3: Configre Vagrantfile
 We want the current ubuntu LTS with puppet installed.
+    
     config.vm.box = "puppetlabs/ubuntu-16.04-64-puppet"
 
 Forward the mongodb server's port
+    
     config.vm.network "forwarded_port", guest: 27017, host: 27017
 
 This sets the VM's IP address or something? IDK.
+    
     config.vm.network "private_network", ip: "10.11.12.13"
 
 Set some reasonable defaults for the virtualbox vm
+    
     config.vm.provider "virtualbox" do |vb|
         # Display the VirtualBox GUI when booting the machine
         #vb.gui = true
