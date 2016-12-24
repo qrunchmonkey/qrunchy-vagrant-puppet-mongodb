@@ -1,0 +1,9 @@
+[submodule "environments/test/modules/mongodb"]
+	path = environments/test/modules/mongodb
+	url = https://github.com/puppetlabs/puppetlabs-mongodb.git
+[submodule "environments/test/modules/apt"]
+	path = environments/test/modules/apt
+	url = https://github.com/puppetlabs/puppetlabs-apt.git
+[submodule "environments/test/modules/stdlib"]
+	path = environments/test/modules/stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
