@@ -47,6 +47,7 @@ We're going to use puppet - for two reasons, because I have no idea what I'm doi
 Apparently Puppet 4 broke all the existing vagrant examples, and now you have to use environments?! I don't know quite what that means, but it seems to require the following:
 
 Make the following directories:
+    
     environments/test/manifests
     environments/test/modules
 
