@@ -17,8 +17,17 @@ node 'ubuntumongo' {
     #Install the latest mongodb from the 10gen repo
     class {'::mongodb::globals':
         manage_package_repo => true,
-        server_package_name => 'mongodb-org'
     }->
     class {'::mongodb::client': } ->
-    class {'::mongodb::server': }
+    class {'::mongodb::server': 
+        port    => 27017,
+        bind_ip => ['0.0.0.0'];
+    }
+
+    mongodb::db { 'testdb':
+        user          => 'user1',
+        password => 'pass1',
+    }
+
 }
+

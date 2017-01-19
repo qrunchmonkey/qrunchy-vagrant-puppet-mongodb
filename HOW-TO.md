@@ -112,4 +112,27 @@ and I ended up with a `environments/test/manifests/ubuntumongo.pp` file that loo
 ####Step 5: Does it work?
 I mean, it provisions without errors, and I can ssh in and `mongo --version` tells me that I'm running 2.6.12, but now what?
 
-Connecting to mogodb:
+Spoiler Alert: It doesn't!
+
+We forgot to tell mongo which IP addresses we want to bind to, so it's only binding to the VM's localhost. That's not what we want!
+
+We'll also want a database. We could create one manually, but why not provision it?
+
+So, edit the ::mongodb:server in `environments/test/manifests/ubuntumongo.pp` entry like so:
+
+    class {'::mongodb::server': 
+        port    => 27017,
+        bind_ip => ['0.0.0.0'];
+    }
+
+
+And below it, add the database:
+
+    mongodb::db { 'testdb':
+        user          => 'user1',
+        password => 'pass1',
+    }
+
+
+
+NOW it works.
