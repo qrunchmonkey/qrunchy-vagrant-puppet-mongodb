@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
-  config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
+  config.vm.box = "puppetlabs/ubuntu-16.04-64-puppet"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
     #vb.gui = true
-  
+
     vb.memory = "1024"
     vb.cpus = 1
 
@@ -42,7 +42,7 @@ Vagrant.configure("2") do |config|
     # Intercept DNS requests and use the host's resolvers.
     vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
   end
-  
+
   config.vm.provision "puppet" do |puppet|
     puppet.environment_path = "environments"
     puppet.environment = "test"
